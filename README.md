@@ -1,52 +1,23 @@
 # Upvote-based-forum-website
 A website/forum where game developers can directly communicate with their player base using reddit's upvote system to show the most important issues/topics that need to be addressed. Offers an solution to the growing disconnect between gaming companies and their player bases. 
 
-Going to explore Yik-Yak's code because they have a well-made upvote system thats simple and organized.
+Going to explore using a Reddit-clone code. This is because it shares many features I would like to implement into my own website such as comments, upvoting, and general post creation. I am going to be using flask as a web framework for my python code. 
 
-- Thinking about replacing "Location" info with the "Issue/Bug". Each user can assign what issue is most important to them that is affecting their gameplay and other users can see that as well as devs. 
+Step 1. Create a Virtual Environment and Install Dependencies
+Create a new Virtual Environment for the project and source it. 
 
-Location Setup
-It allows you to enter the name of a college or university.
+$ virtualenv venv
+$ source venv/bin/activate
 
-Enter college name or address: Capital University
+Step 2. Setup the Database 
+Enter the MySQL shell and create a Flask app user and database running locally. 
+mysql> create database reddit;
+mysql> create user 'reddit'@'localhost' identified by 'reddit';
+mysql> grant all privileges on reddit.* to 'reddit'@'localhost';
+Now apply the models defined in the flask app as such:
 
-The app will save this location as default, so you don't have to enter it each time.
+(venv) $ ./migrate.py db init
+(venv) $ ./migrate.py db migrate
+(venv) $ ./migrate.py db upgrade
 
-Location is set to: Capital University
-
-You can change this location at any time and see yaks from different colleges.
-
-*Choose New Location	(L) or (L <location>)
-  
- - Their Actions are very similiar to what I had in mind with their upvote/commenting system. Can use this code to create a medium for users to comment. 
- 
- Actions
-Actions are performed using a single letter and optional parameter(s).
-
-*Read Latest Yaks		    (R)
-*Read Top Local Yaks		(T)
-
-*Read Best Yaks of All Time	(B)
-
-*Show User Yaks			    (S)
-*Show User Comments		    (O)
-
-*Post Yak			        (P) or (P <message>)
-*Post Comment			    (C) or (C <yak#>)
-
-*Upvote Yak			        (U) or (U <yak#>)
-*Downvote Yak			    (D) or (D <yak#>)
-*Report Yak					(E) or (E <yak#>)
-
-*Upvote Comment			    (V) or (V <yak# comment#>)
-*Downvote Comment		    (H) or (H <yak# comment#>)
-*Report Comment				(M) or (M <yak# comment#>)
-
-*Yakarma Level			    (Y)
-
-*Choose New User ID		    (I) or (I <userID>)
-*Choose New Location		(L) or (L <location>)
-
-*Contact Yik Yak			(F)
-
-*Quit App			    	(Q)
+Step 3. Run the server. 
