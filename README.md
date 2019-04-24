@@ -11,7 +11,7 @@ $ virtualenv venv
 $ source venv/bin/activate
 
 # Step 2. Setup the Database 
-# Enter the MySQL shell and create a Flask app user and database running locally. 
+ Enter the MySQL shell and create a Flask app user and database running locally. 
 
 mysql> create database reddit;
 
