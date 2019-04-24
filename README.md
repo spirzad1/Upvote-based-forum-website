@@ -7,17 +7,23 @@ Going to explore using a Reddit-clone code. This is because it shares many featu
 Create a new Virtual Environment for the project and source it. 
 
 $ virtualenv venv
+
 $ source venv/bin/activate
 
 # Step 2. Setup the Database 
 # Enter the MySQL shell and create a Flask app user and database running locally. 
+
 mysql> create database reddit;
+
 mysql> create user 'reddit'@'localhost' identified by 'reddit';
+
 mysql> grant all privileges on reddit.* to 'reddit'@'localhost';
 # Now apply the models defined in the flask app as such:
 
 (venv) $ ./migrate.py db init
+
 (venv) $ ./migrate.py db migrate
+
 (venv) $ ./migrate.py db upgrade
 
 Step 3. Run the server. 
